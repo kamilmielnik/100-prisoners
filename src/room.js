@@ -1,28 +1,30 @@
-'use strict';
+(function () {
+    'use strict';
 
-module.exports = function () {
-    var isLightOn = false,
-        hasGuardBeenCalled = false;
+    module.exports = function () {
+        var isLightOn = false,
+            hasGuardBeenCalled = false;
 
-    return {
-        isLightOn: function () {
-            return isLightOn;
-        },
+        return {
+            isLightOn: function () {
+                return isLightOn;
+            },
 
-        switchLightOn: function () {
-            isLightOn = true;
-        },
+            switchLightOn: function () {
+                isLightOn = true;
+            },
 
-        switchLightOff: function () {
-            isLightOn = false;
-        },
+            switchLightOff: function () {
+                isLightOn = false;
+            },
 
-        hasGuardBeenCalled: function () {
-            return hasGuardBeenCalled;
-        },
+            hasGuardBeenCalled: function () {
+                return hasGuardBeenCalled;
+            },
 
-        callGuard: function () {
-            hasGuardBeenCalled = true;
-        }
+            callGuard: function () {
+                hasGuardBeenCalled = true;
+            }
+        };
     };
-};
+})();
