@@ -1,9 +1,12 @@
 (function () {
     'use strict';
 
-    var _ = require('underscore'),
-        Room = require('./room.js'),
-        RoomVisitorsHistory = require('./room-visitors-history.js');
+    var Room = require('./room.js'),
+        RoomVisitorsHistory = require('./room-visitors-history.js'),
+        randomPrisoner,
+        haveAllPrisonersVisitedTheRoom,
+        onWin,
+        onLose;
 
     module.exports = function (options) {
         var generatePrisoners = options.algorithm,
@@ -11,10 +14,11 @@
             prisoners = generatePrisoners(numberOfPrisoners),
             room = new Room(),
             roomVisitorsHistory = new RoomVisitorsHistory(),
-            dayNumber = 0;
+            dayNumber = 0,
+            prisoner;
 
         while (true) {
-            var prisoner = randomPrisoner(prisoners);
+            prisoner = randomPrisoner(prisoners);
             prisoner.onRoomEntered(room, dayNumber);
             roomVisitorsHistory.visit(prisoner);
             if (room.hasGuardBeenCalled()) {
@@ -32,22 +36,22 @@
     };
 
 
-    function randomPrisoner(prisoners) {
+    randomPrisoner = function (prisoners) {
         var randomPrisonerIndex = Math.floor(Math.random() * prisoners.length),
             prisoner = prisoners[randomPrisonerIndex];
 
         return prisoner;
-    }
+    };
 
-    function haveAllPrisonersVisitedTheRoom(prisoners, roomVisitorsHistory) {
+    haveAllPrisonersVisitedTheRoom = function (prisoners, roomVisitorsHistory) {
         return prisoners.length === roomVisitorsHistory.numberOfUniqueVisitors();
-    }
+    };
 
-    function onWin(dayNumber) {
+    onWin = function (dayNumber) {
         console.log('You win after ' + dayNumber + ' days!');
-    }
+    };
 
-    function onLose(dayNumber) {
+    onLose = function (dayNumber) {
         console.log('You lose after ' + dayNumber + ' days.');
-    }
-})();
+    };
+}());

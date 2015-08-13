@@ -2,7 +2,9 @@
     'use strict';
 
     var _ = require('underscore'),
-        prison = require('./prison.js');
+        prison = require('./prison.js'),
+        printBenchmarkParameters,
+        printAverageScore;
 
     module.exports = function (options) {
         var algorithms = _(options.algorithms),
@@ -26,12 +28,12 @@
         });
     };
 
-    function printBenchmarkParameters(numberOfRuns, numberOfPrisoners) {
+    printBenchmarkParameters = function (numberOfRuns, numberOfPrisoners) {
         console.log('Launching benchmark with ' + numberOfRuns + ' runs & ' + numberOfPrisoners + ' prisoners');
-    }
+    };
 
-    function printAverageScore(algorithmName, score, numberOfRuns) {
+    printAverageScore = function (algorithmName, score, numberOfRuns) {
         var averageScore = Math.round(score / numberOfRuns);
         console.log(algorithmName + ' solves puzzle in ' + averageScore + ' days on average');
-    }
-})();
+    };
+}());

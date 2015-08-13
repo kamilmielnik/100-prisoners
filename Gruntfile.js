@@ -20,9 +20,13 @@ module.exports = function (grunt) {
                     'src/**/*.js'
                 ],
                 directives: {
+                    unparam: true,
+                    plusplus: true,
+                    nomen: true,
                     predef: [
                         'require',
-                        'module'
+                        'module',
+                        'console'
                     ]
                 }
             }
