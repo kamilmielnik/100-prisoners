@@ -1,0 +1,28 @@
+{
+    "name": "100-prisoners",
+    "version": "0.9.0",
+    "description": "100 Prisoners and a Light Bulb Riddle",
+    "keywords": [
+        "100",
+        "prisoners",
+        "light",
+        "bulb",
+        "riddle"
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "Kamil Mielnik",
+        "url": "http://kamilmielnik.pl/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kamilmielnik/100-prisoners.git"
+    },
+    "bugs": {
+        "url": "https://github.com/kamilmielnik/100-prisoners/issues"
+    },
+    "main": "index.js",
+    "devDependencies": {
+        "underscore": "^1.8.3"
+    }
+}
