@@ -1,8 +1,8 @@
 (function () {
     'use strict';
 
-    var CountingPrisoner = require('./simple/counting-prisoner.js'),
-        Prisoner = require('./simple/prisoner.js');
+    var CountingPrisoner = require('./interval/counting-prisoner.js'),
+        Prisoner = require('./interval/prisoner.js');
 
     module.exports = function (numberOfPrisoners) {
         var prisoners = [
